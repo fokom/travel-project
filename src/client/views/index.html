@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Travel Planner App</title>
+<meta name="description" content="This is a sample travel app to check how the weather will be at the destination on the set dates">
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+ <body>
+  <header id="app-header">
+    <div class="div-logo">
+        <i class="logo app-icon fas fa-map-marker-alt"></i>
+        <p class="logo app-name">TRIP APP</p>
+    </div>
+    <div class="app-slogan">
+        <p>Get an idea of your trip <i class="logo slogan-icon fas fa-map"></i></p>
+    </div>
+</header>
+
+<main id="app-main">
+
+    <section class="container" id="user-entries">
+        <form class="holder-form">
+            <div class="input">
+                <label for="place" class="label-place">My trip to:</label>
+                <input type="text" id="place" placeholder="Enter Your Destination">
+            </div>
+            <div class="input">
+                <label for="date" class="label-date">Departing:</label>
+                <input type="text" name="date" id="date" class="flatpickr js-flatpickr-dateTime" placeholder="YYYY-MM-DD">
+            </div>
+            <button id="generate" class="rounded-btn-animated" type="submit">Generate</button>
+        </form>
+    </section>
+
+    <section class="container" id="results">
+    </section>
+  
+</main>
+<footer id="app-footer">
+  <div class="copyright">© March 2023</div>
+</footer>
+
+<script>
+    //Check if browser support service workers
+    if('serviceWorker' in navigator){
+
+        //use Window Load event to keep page loading
+        window.addEventListener('load', ()=>{
+
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+</body>
+</html>

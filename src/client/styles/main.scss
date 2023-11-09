@@ -1,0 +1,776 @@
+@import '~flatpickr/dist/flatpickr.css'; //import Flatpickr date picker from npm
+@import '~@fortawesome/fontawesome-free/css/all.css'; //import Font Awesome Icons from npm
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    margin: auto;
+    background: center / cover no-repeat url(../media/bg-image-for-app.jpeg) fixed;
+}
+
+$font-logo: 'Ranchers', cursive;
+$font-slogan: sans-serif, cursive;
+$font-main: 'Roboto', sans-serif;
+
+$font-app: 15px $font-main;
+
+$delete-color: #98352f;
+$primary-color: #887f66;
+$secondary-color: #ffffff;
+$complementary-color: #a4aab8;
+
+$shade-primary-color: lightblue;
+$shade-secondary-color: #595a5d;
+$shade-complementary-color: rgb(218, 218, 218);
+
+@import './header';
+@import './footer';
+
+.rounded-btn-animated {
+    border-style: none;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    width: 150px;
+
+    &:hover {
+        background-color: $secondary-color;
+        color: #000;
+    }
+}
+
+.remove-trip{
+    border-style: none;
+    background-color: $delete-color;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    width: 150px;
+    align-self: center;
+
+    &:hover {
+        background-color: $secondary-color;
+        color: #000;
+    }
+}
+
+.travel-img{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+}
+
+.icon-travel-info {
+    display: block;
+    width: 5px;
+    font-size: $font-app;
+    color: $shade-secondary-color;
+}
+
+.icon-travel-weather {
+    display: block;
+    width: 5px;
+    font-size: $font-app;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+
+#app-main {
+    margin-top: 16vh;
+    margin-bottom: 120px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 190px 1fr;
+    row-gap: 20px;
+    height: 100%;
+    overflow: visible;
+    padding: 5px 10px;
+    
+}
+
+
+
+#results{
+    display: grid;
+    grid-template-columns: 95%;
+    row-gap: 25px;
+    justify-content: center;
+    justify-items: center;
+    font: $font-app;
+}
+
+.trip-holder{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 10px;
+    max-width: 290px;
+    background-color: $complementary-color;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.info-holder {
+    padding: 10px;
+    width: 100%;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-header {
+    display: grid;
+    row-gap: 5px;
+}
+
+.travel-data {
+    display: grid;
+    grid-template-columns: 7% 93%;
+    column-gap: 5px;
+}
+
+.travel-summary-info {
+    font-weight: bold;
+    color: $shade-secondary-color;
+}
+
+.counter {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 5px;
+    align-items: center;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    width: 100%;
+    max-width: 250px;
+    justify-self: center;
+}
+
+.counter-icon {
+    font-size: 28px;
+    padding: 1px;
+}
+
+.result-body {
+    padding: 10px 0 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 10px;
+}
+
+.weather-holder {
+    width: 100%;
+}
+
+.weather-description {
+    display: grid;
+    grid-template-columns: 7% 93%;
+    column-gap: 5px;
+    margin-bottom: 15px;
+}
+
+.result-subtitle {
+    text-transform: uppercase;
+    justify-self: center;
+    padding: 15px 0;
+    font-weight: bold;
+    color: $shade-secondary-color;
+    text-align: center;
+}
+
+.past-years-holder{
+    display: grid;
+    row-gap: 5px;
+}
+
+.weather-past-years {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    column-gap: 5px;
+    margin-bottom: 15px;
+    background-color: $secondary-color;
+    color: #000000;
+    padding: 7px;
+    border-radius: 5px;
+    width: 125px;
+    justify-self: end;
+
+}
+
+
+#user-entries{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.holder-form{
+    height: 145px;
+    width: 300px;
+    padding: 25px 20px;
+    font: $font-app;
+    font-weight: 400;
+    background-color: $complementary-color;
+    border-radius: 10px;
+    display: grid;
+    row-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.label-place{
+    margin-right: 5px;
+    line-height: 25px;
+}
+
+.label-date{
+    margin-right: 5px;
+    line-height: 25px;
+}
+
+#date{
+    width: 165px;
+}
+
+#place{
+    width: 165px;
+    height: 26px;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#generate{
+    margin-top: 5px;
+}
+
+
+@media screen and (min-width: 1500px) {
+    .rounded-btn-animated {
+        padding: 10px;
+        width: 200px;
+    }
+    
+    .remove-trip{
+        padding: 10px;
+        width: 200px;
+    }
+    
+    .icon-travel-info {
+        width: 10px;
+    }
+    
+    .icon-travel-weather {
+        width: 10px;
+        font-size: 20px;
+    }
+    
+    #app-main {
+        margin-top: 18vh;
+        margin-bottom: 140px;
+        padding: 10px 15px;        
+    }
+    
+    #results{
+        font-size: 20px;
+    }
+    
+    .trip-holder{
+        max-width: 360px;
+        padding-bottom: 15px;
+    }
+    
+    .info-holder {
+        padding: 15px;
+    }
+    
+    
+    .travel-summary-info {
+        font-weight: bold;
+        color: $shade-secondary-color;
+    }
+    
+    .counter {
+        padding: 5px;
+        max-width: 300px;
+    }
+    
+    .counter-icon {
+        font-size: 30px;
+        padding: 4px;
+    }
+    
+    .result-body {
+        padding: 15px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 20px;
+    }
+    
+    .result-subtitle {
+        padding: 18px 0;
+    }
+    
+    
+    .weather-past-years {
+        padding: 10px;
+        width: 130px;
+    }
+    
+    .holder-form{
+        height: 400px;
+        width: 65%;
+        padding: 40px 30px;
+        font-size: 20px;
+    }
+    
+    #date{
+        width: 220px;
+    }
+    
+    #place{
+        width: 220px;
+        height: 28px;
+    }
+    
+    #generate{
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and  (max-width: 1400px) {
+    .rounded-btn-animated {
+        padding: 16px;
+        width: 200px;
+    }
+    
+    .remove-trip{
+        padding: 7px;
+        width: 200px;
+    }
+    
+    
+    #app-main {
+        margin-top: 16vh;
+        margin-bottom: 140px;
+        padding: 7px 13px;        
+    }
+    
+    #results{
+        font-size: 18px;
+    }
+    
+    .trip-holder{
+        max-width: 380px;
+        padding-bottom: 13px;
+    }
+    
+    .info-holder {
+        padding: 13px;
+    }
+
+    
+    .counter {
+        padding: 5px;
+        max-width: 290px;
+    }
+    
+    .counter-icon {
+        font-size: 27px;
+        padding: 3px;
+    }
+    
+    .result-body {
+        padding: 13px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 17px;
+    }
+    
+    .result-subtitle {
+        padding: 17px 0;
+    }
+    
+    
+    .weather-past-years {
+        padding: 7px;
+        width: 127px;
+    }
+    
+    .holder-form{
+        height: 190px;
+        width: 380px;
+        padding: 35px 27px;
+        font-size: 18px;
+    }
+    
+    #date{
+        width: 210px;
+    }
+    
+    #place{
+        width: 210px;
+        height: 27px;
+    }
+    
+    #generate{
+        margin-top: 7px;
+    }
+}
+
+@media screen and  (max-width: 1280px) {
+    .rounded-btn-animated {
+        padding: 17px;
+        width: 180px;
+    }
+    
+    .remove-trip{
+        padding: 7px;
+        width: 180px;
+    }
+    
+    .icon-travel-info {
+        width: 7px;
+    }
+    
+    .icon-travel-weather {
+        width: 7px;
+        font-size: 18px;
+    }
+    
+    #app-main {
+        margin-top: 16vh;
+        margin-bottom: 135px;
+        padding: 7px 13px;        
+    }
+    
+    #results{
+        font-size: 17px;
+    }
+    
+    .trip-holder{
+        max-width: 350px;
+        padding-bottom: 13px;
+    }
+    
+    .info-holder {
+        padding: 13px;
+    }
+
+    
+    .counter {
+        padding: 5px;
+        max-width: 290px;
+    }
+    
+    .counter-icon {
+        font-size: 27px;
+        padding: 3px;
+    }
+    
+    .result-body {
+        padding: 13px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 17px;
+    }
+    
+    .result-subtitle {
+        padding: 17px 0;
+    }
+    
+    
+    .weather-past-years {
+        padding: 7px;
+        width: 127px;
+    }
+    
+    .holder-form{
+        height: 190px;
+        width: 65%;
+        padding: 35px 27px;
+        font-size: 18px;
+    }
+    
+    #date{
+        width: 210px;
+    }
+    
+    #place{
+        width: 210px;
+        height: 27px;
+    }
+    
+    #generate{
+        margin-top: 7px;
+    }
+}
+
+@media screen and  (max-width: 767px) {
+    .rounded-btn-animated {
+        padding: 20px;
+        width: 250px;
+    }
+    
+    .remove-trip{
+        padding: 10px;
+        width: 250px;
+    }
+    
+    
+    #app-main {
+        margin-top: 16vh;
+        margin-bottom: 140px;
+        padding: 7px 13px;        
+    }
+    
+    #results{
+        font-size: 18px;
+    }
+    
+    .trip-holder{
+        max-width: 380px;
+        padding-bottom: 13px;
+    }
+    
+    .info-holder {
+        padding: 13px;
+    }
+
+    
+    .counter {
+        padding: 5px;
+        max-width: 290px;
+    }
+    
+    .counter-icon {
+        font-size: 27px;
+        padding: 3px;
+    }
+    
+    .result-body {
+        padding: 13px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 17px;
+    }
+    
+    .result-subtitle {
+        padding: 17px 0;
+    }
+    
+
+    .weather-past-years {
+        padding: 7px;
+        width: 127px;
+    }
+    
+    .holder-form{
+        height: 250px;
+        width: 65%;
+        padding: 40px 30px;
+        font-size: 20px;
+    }
+    
+    #date{
+        width: 210px;
+    }
+    
+    #place{
+        width: 210px;
+        height: 27px;
+    }
+    
+    #generate{
+        margin-top: 7px;
+    }
+}
+
+@media screen and  (max-width: 500px) {
+    .rounded-btn-animated {
+        padding: 10px;
+        width: 250px;
+    }
+    
+    .remove-trip{
+        padding: 10px;
+        width: 250px;
+    }
+    
+    #app-main {
+        margin-top: 16vh;
+        margin-bottom: 140px;
+        padding: 7px 13px;        
+    }
+    
+    #results{
+        font-size: 18px;
+    }
+    
+    .trip-holder{
+        max-width: 80%;
+        padding-bottom: 13px;
+    }
+    
+    .info-holder {
+        padding: 13px;
+    }
+
+    
+    .counter {
+        padding: 5px;
+        max-width: 290px;
+    }
+    
+    .counter-icon {
+        font-size: 27px;
+        padding: 3px;
+    }
+    
+    .result-body {
+        padding: 13px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 17px;
+    }
+    
+    .result-subtitle {
+        padding: 17px 0;
+    }
+    
+
+    .weather-past-years {
+        padding: 7px;
+        width: 127px;
+    }
+    
+    .holder-form{
+        height: 350px;
+        width: 85%;
+        padding: 5px;
+        font-size: 22px;
+    }
+    
+    #date{
+        width: 230px;
+    }
+    
+    #place{
+        width: 230px;
+        height: 27px;
+    }
+    
+    #generate{
+        margin-top: 7px;
+    }
+}
+
+@media screen and  (max-width: 489px) {
+    .rounded-btn-animated {
+        padding: 10px;
+        width: 250px;
+    }
+    
+    .remove-trip{
+        padding: 10px;
+        width: 250px;
+    }
+    
+    #app-main {
+        margin-top: 16vh;
+        margin-bottom: 140px;
+        padding: 7px 13px;        
+    }
+    
+    #results{
+        font-size: 18px;
+    }
+    
+    .trip-holder{
+        max-width: 80%;
+        padding-bottom: 13px;
+    }
+    
+    .info-holder {
+        padding: 13px;
+    }
+
+    
+    .counter {
+        padding: 5px;
+        max-width: 290px;
+    }
+    
+    .counter-icon {
+        font-size: 27px;
+        padding: 3px;
+    }
+    
+    .result-body {
+        padding: 13px 0 0;
+    }
+    
+    .weather-description {
+        margin-bottom: 17px;
+    }
+    
+    .result-subtitle {
+        padding: 17px 0;
+    }
+    
+
+    .weather-past-years {
+        padding: 7px;
+        width: 127px;
+    }
+    
+    .holder-form{
+        height: 350px;
+        width: 95%;
+        padding: 5px;
+        font-size: 22px;
+    }
+    
+    #date{
+        width: 230px;
+    }
+    
+    #place{
+        width: 230px;
+        height: 27px;
+    }
+    
+    #generate{
+        margin-top: 7px;
+    }
+}
+

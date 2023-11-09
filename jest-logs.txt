@@ -1,0 +1,15 @@
+$ npm run test
+
+> example-project@1.0.0 test
+> jest
+
+PASS __test__/launch.test.js (131.689 s)
+PASS __test__/getCallToGeonames.test.js (6.593 s)
+PASS __test__/getExpressApp.test.js (31.456 s)
+PASS __test__/getHistoricWData.test.js (16.101 s)
+
+Test Suites: 4 passed, 4 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        194.025 s
+Ran all test suites.

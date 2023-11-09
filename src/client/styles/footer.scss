@@ -1,0 +1,121 @@
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 40px;
+    height: 30px;
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85em;
+    padding: 0 0.65rem 0.65rem;
+}
+
+#app-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    background-color: #736950;
+    box-shadow: 0 -10px 10px #52504a;
+    align-items: center;
+}
+
+
+@media (min-width: 1500px) {
+
+    footer {        
+        height: 80px;
+        align-items: center;
+    }
+    
+    .copyright {
+        font-size: 2em;
+        padding: 0 0.95rem 0.95rem;
+    }
+    
+    #app-footer{
+        height: 10vh;
+    }
+    
+}
+@media (max-width: 1400px) {
+
+    footer {        
+        height: 28px;
+    }
+    
+    .copyright {
+        font-size: 1.7em;
+        padding: 0 0.85rem 0.85rem;
+    }
+    
+    #app-footer{
+        height: 8vh;
+    }
+ 
+}
+
+@media (max-width: 1280px) {
+    footer {        
+        height: 26px;
+    }
+    
+    .copyright {
+        font-size: 1.5em;
+        padding: 0 0.75rem 0.75rem;
+    }
+    
+    #app-footer{
+        height: 7vh;
+    }
+}
+@media (max-width: 769px) {
+    footer {        
+        height: 26px;
+    }
+    
+    .copyright {
+        font-size: 1.3em;
+        padding: 0 0.75rem 0.75rem;
+    }
+    
+    #app-footer{
+        height: 7vh;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    footer {        
+        height: 24px;
+    }
+    
+    .copyright {
+        font-size: 1.1em;
+        padding: 0 0.65rem 0.65rem;
+    }
+    
+    #app-footer{
+        height: 6vh;
+        font-size: 0.8em;
+        
+    }
+}
+
+@media (max-width: 490px) {
+    footer {        
+        height: 15px;
+    }
+    
+    .copyright {
+        font-size: 1.1em;
+        padding: 0 0.85rem 0.85rem;
+    }
+    
+    #app-footer{
+        height: 8vh;
+    }
+}
