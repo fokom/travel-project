@@ -10,6 +10,7 @@ Running app
 Service worker
 ![service-worker](screenshots/service-worker-active.png)
 
+
 Cached Data
 ![cached-data](screenshots/cached-app.png)
 
